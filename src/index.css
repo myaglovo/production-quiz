@@ -381,6 +381,7 @@ button[type="submit"].disabled {
 }
 .header__wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -391,6 +392,7 @@ button[type="submit"].disabled {
   line-height: 130%;
   margin: 0 25px;
   list-style: none;
+  white-space: nowrap;
 }
 .header__item a {
   color: #000;
@@ -405,4 +407,25 @@ button[type="submit"].disabled {
 }
 .header__logo {
   max-height: 96px;
+}
+
+@media screen and (max-width: 1240px) {
+  .header {
+    position: relative;
+  }
+  .header__wrapper {
+    padding: 12px 0;
+  }
+  .quiz-wrapper {
+    margin: 30px 0;
+  }
+  .header__item {
+    flex: 0 1 auto;
+    margin: 15px 25px 0 0;
+  }
+  .header__logo__wrapper {
+    text-align: center;
+    order: -1;
+    flex: 1 0 100%;
+  }
 }

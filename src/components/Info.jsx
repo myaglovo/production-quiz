@@ -10,34 +10,51 @@ export default function Info() {
     formState: { errors },
   } = useForm();
 
-  const personalInfo = quizState.personalInfo;
-
+  const capitalizeWords = (str) => {
+    return str.toLowerCase().replace(/(^|\s)\S/g, function (l) {
+      return l.toUpperCase();
+    });
+  };
   const onSubmit = (data) => {
     const { username, email } = data;
-    console.log(data);
-    dispatch({ type: "START__QUIZ", payload: { username, email } });
+    const capitalizedUserName = capitalizeWords(username);
+    dispatch({ type: "START__QUIZ", payload: { capitalizedUserName, email } });
   };
 
   return (
     <>
-      <div className="welcome-card">
-        <h1>Тест на знание истории Салехарда</h1>
-        <p>Чтобы начать прходить тест, напишите данные для получения диплома</p>
+      <div className="card card--center">
+        <h1 className="title-h1">Я помню. Я горжусь</h1>
+        <p className="text p-2">
+          Проверьте свои знания о вкладе ямальцев в Великую Победу!<br></br>
+          Пройдите тест из {quizState.questions.length} вопросов. Чтобы получить
+          диплом на электронный адрес, необходимо правильно ответить более чем
+          на половину вопросов.
+        </p>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
-            <label htmlFor="name">ФИО в дипломе</label>
+            <label htmlFor="name" className="text">
+              ФИО в дипломе
+            </label>
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Иванов Иван Васильевич"
+              placeholder="Награждается Иванов Иван Васильевич"
               required
-              {...register("username", { required: true })}
+              {...register("username", {
+                required: true,
+                pattern: /[а-яА-ЯёЁ]/,
+              })}
             />
-            {errors.username && <span>Поле имя обязательно</span>}
+            {errors.username && (
+              <span>Поле ФИО обязательно. Используйте кириллицу.</span>
+            )}
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label className="text" htmlFor="email">
+              Адрес электронной почты
+            </label>
             <input
               type="email"
               id="email"

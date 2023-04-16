@@ -15,9 +15,6 @@ export default function Quiestion({ index, props }) {
   const [disabled, setDisabled] = useState(true);
   const [quizState, dispatch] = useContext(QuizContext);
 
-  console.log("choosenAnswer ---", choosenAnswer);
-  console.log("correctAnswers ---", correctAnswer);
-
   const handlerClickNext = () => {
     dispatch({ type: "NEXT_QUESTION", payload: { index, currentAnswer } });
     setDisabled(true);
@@ -29,12 +26,12 @@ export default function Quiestion({ index, props }) {
   };
 
   return (
-    <div className="question-card">
+    <div className="card">
       <div className="question-number">
         Вопрос {index + 1} / {quizState.questions.length}
       </div>
-      <div className="question-text">{props.question}</div>
-      <ul className="answer-options">
+      <div className="text--quiz">{props.question}</div>
+      <ul className="answer-options p-2">
         {props.answers.map((answer, idx) => (
           <Answer
             choosenAnswer={choosenAnswer}

@@ -430,7 +430,13 @@ button[type="submit"].disabled {
   }
 }
 @media screen and (max-width: 640px) {
+  .text--quiz {
+    font-size: 18px;
+  }
   .card {
     padding: 30px;
+  }
+  .title-h1 {
+    font-size: 34px;
   }
 }

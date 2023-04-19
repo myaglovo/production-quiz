@@ -12,7 +12,7 @@ export default function Result() {
   };
 
   const createAndDownloadPDF = () => {
-    axios.post("/create-pdf", state);
+    axios.post("http://151.248.126.134:5000/", state);
   };
 
   const successCondition =

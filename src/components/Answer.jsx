@@ -32,8 +32,13 @@ export default function Answer({
       id={currentQuestionId}
       onClick={() => handlerSelectAnswer(text)}
     >
-      <label htmlFor={text} className={classes}>
-        <input type="radio" id={text} name={currentQuestionId} value={text} />
+      <label htmlFor={`${text} ${index}`} className={classes}>
+        <input
+          type="radio"
+          id={`${text} ${index}`}
+          name={currentQuestionId}
+          value={`${text} ${index}`}
+        />
         {text}
       </label>
     </li>

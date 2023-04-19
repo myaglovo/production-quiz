@@ -25,6 +25,10 @@ export default function Quiestion({ index, props }) {
     setDisabled(false);
   };
 
+  console.log("Индекс вопроса:", index);
+  console.log("Выбранный ответ:", choosenAnswer);
+  console.log("-------");
+
   return (
     <div className="card">
       <div className="question-number">

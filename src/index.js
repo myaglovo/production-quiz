@@ -12,8 +12,12 @@ const router = createBrowserRouter([
     element: <Quiz />,
   },
   {
-    path: "/admin",
+    path: "admin",
     element: <Admin />,
+  },
+  {
+    path: "test",
+    element: <p>Тестовая информация</p>,
   },
 ]);
 

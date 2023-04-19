@@ -38,7 +38,7 @@ const reducer = (state, action) => {
         ...state,
         personalInfo: {
           email: action.payload.email,
-          username: action.payload.username,
+          username: action.payload.capitalizedUserName,
         },
         showInfo: false,
         showQuiz: true,
